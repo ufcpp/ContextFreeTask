@@ -2,6 +2,8 @@
 
 ### Usage
 
+NuGet package: https://www.nuget.org/packages/ContextFreeTasks/
+
 Use `ContextFreeTask` struct instead of `Task` class (`System.Threading.Tasks` namespace) for return types of async methods.
 
 ```csharp

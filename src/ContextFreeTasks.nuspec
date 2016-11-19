@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ContextFreeTasks</id>
+    <version>0.1.0</version>
+    <title>ContextFreeTasks</title>
+    <authors>Nobuyuki Iwanaga</authors>
+    <owners>Nobuyuki Iwanaga</owners>
+    <licenseUrl>https://github.com/ufcpp/ContextFreeTask/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/ufcpp/ContextFreeTask/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Task-like structs which capture no synchronization context on the await operations in C#</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Nobuyuki Iwanaga</copyright>
+    <tags>Task-like, async method, ConfigureAwait, SynchronizationContext</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+      <file src="ContextFreeTasks.Net45\bin\Release\*" target="lib\net45" />
+  </files>
+</package>
