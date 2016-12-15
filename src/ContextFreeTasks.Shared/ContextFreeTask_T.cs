@@ -1,13 +1,15 @@
 ﻿using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using static System.Threading.Tasks.Task;
 
 namespace ContextFreeTasks
 {
     [AsyncMethodBuilder(typeof(AsyncContextFreeTaskMethodBuilder<>))]
     public struct ContextFreeTask<T>
     {
-        public Task<T> Task { get; }
-        internal ContextFreeTask(Task<T> t) => Task = t;
+        private readonly Task<T> _task;
+        public Task<T> Task => _task ?? FromResult(default(T));
+        internal ContextFreeTask(Task<T> t) => _task = t;
         public ContextFreeTaskAwaiter<T> GetAwaiter() => new ContextFreeTaskAwaiter<T>(Task);
     }
 }
