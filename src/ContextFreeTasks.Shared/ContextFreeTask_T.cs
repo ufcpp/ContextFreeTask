@@ -9,7 +9,9 @@ namespace ContextFreeTasks
     {
         private readonly Task<T> _task;
         public Task<T> Task => _task ?? FromResult(default(T));
+        public T Result => GetAwaiter().GetResult();
         internal ContextFreeTask(Task<T> t) => _task = t;
         public ContextFreeTaskAwaiter<T> GetAwaiter() => new ContextFreeTaskAwaiter<T>(Task);
+        public void Wait() => _task?.Wait();
     }
 }

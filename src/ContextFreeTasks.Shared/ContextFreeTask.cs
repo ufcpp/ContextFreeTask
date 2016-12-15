@@ -11,5 +11,6 @@ namespace ContextFreeTasks
         public Task Task => _task ?? FromResult(default(object));
         internal ContextFreeTask(Task t) => _task = t;
         public ContextFreeTaskAwaiter GetAwaiter() => new ContextFreeTaskAwaiter(Task);
+        public void Wait() => _task?.Wait();
     }
 }
