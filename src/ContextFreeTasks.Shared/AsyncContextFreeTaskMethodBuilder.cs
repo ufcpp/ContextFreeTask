@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Threading;
 
-namespace ContextFreeTasks
+namespace ContextFreeTasks.Internal
 {
     [StructLayout(LayoutKind.Auto)]
     public struct AsyncContextFreeTaskMethodBuilder

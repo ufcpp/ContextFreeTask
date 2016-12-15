@@ -1,6 +1,6 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ContextFreeTasks;
 using System.Threading.Tasks;
+using ContextFreeTasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest
 {
