@@ -7,7 +7,7 @@ namespace ContextFreeTasks
     public struct ContextFreeTask<T>
     {
         public Task<T> Task { get; }
-        public ContextFreeTask(Task<T> t) => Task = t;
+        internal ContextFreeTask(Task<T> t) => Task = t;
         public ContextFreeTaskAwaiter<T> GetAwaiter() => new ContextFreeTaskAwaiter<T>(Task);
     }
 }
