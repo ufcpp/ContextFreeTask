@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.25909.2
+VisualStudioVersion = 15.0.26009.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextFreeTasks.Net45", "src\ContextFreeTasks.Net45\ContextFreeTasks.Net45.csproj", "{D257557E-2EDE-4985-910C-E9FED52EC18A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{6A74A06E-95AD-4282-B5CD-8F3981EB36FA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestNet45", "tests\UnitTestNet45\UnitTestNet45.csproj", "{5F2CAD27-1E74-479F-89CC-76189071EF38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextFreeTasks.NETStandard", "src\ContextFreeTasks.NETStandard\ContextFreeTasks.NETStandard.csproj", "{B66E3ACF-AE45-408E-9835-6D5EADC059CD}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -31,6 +33,10 @@ Global
 		{5F2CAD27-1E74-479F-89CC-76189071EF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F2CAD27-1E74-479F-89CC-76189071EF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F2CAD27-1E74-479F-89CC-76189071EF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66E3ACF-AE45-408E-9835-6D5EADC059CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66E3ACF-AE45-408E-9835-6D5EADC059CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66E3ACF-AE45-408E-9835-6D5EADC059CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66E3ACF-AE45-408E-9835-6D5EADC059CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{D257557E-2EDE-4985-910C-E9FED52EC18A} = {CCD7F356-58C1-4A5D-9694-D61EFB1998E1}
 		{A77AEF97-5E8A-4296-AEA4-2A18D6941C63} = {CCD7F356-58C1-4A5D-9694-D61EFB1998E1}
 		{5F2CAD27-1E74-479F-89CC-76189071EF38} = {6A74A06E-95AD-4282-B5CD-8F3981EB36FA}
+		{B66E3ACF-AE45-408E-9835-6D5EADC059CD} = {CCD7F356-58C1-4A5D-9694-D61EFB1998E1}
 	EndGlobalSection
 EndGlobal
