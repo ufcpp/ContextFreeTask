@@ -6,11 +6,7 @@
     <Compile Include="**\*.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0">
-      <IncludeAssets>Compile</IncludeAssets>
-      <PrivateAssets>All</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="System.Threading" Version="4.3.0" />
+    <PackageReference Include="NETStandard.Library" Version="1.6.1" />
   </ItemGroup>
   <Import Project="..\ContextFreeTasks.Shared\ContextFreeTasks.Shared.projitems" Label="Shared" />
 </Project>
