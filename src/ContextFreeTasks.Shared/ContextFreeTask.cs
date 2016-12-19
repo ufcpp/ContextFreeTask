@@ -13,6 +13,6 @@ namespace ContextFreeTasks
         internal ContextFreeTask(Task t) => _task = t;
         public ContextFreeTaskAwaiter GetAwaiter() => new ContextFreeTaskAwaiter(Task);
         public void Wait() => _task?.Wait();
-        public ConfiguredTaskAwaitable EnableContextCapture() => Task.ConfigureAwait(true);
+        public ConfiguredTaskAwaitable ConfigureAwait(bool continueOnCapturedContext) => Task.ConfigureAwait(continueOnCapturedContext);
     }
 }
