@@ -14,8 +14,14 @@
     <copyright>Nobuyuki Iwanaga</copyright>
     <tags>Task-like, async method, ConfigureAwait, SynchronizationContext</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
     </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="net45" />
+      <group targetFramework="netstandard1.0">
+	<dependency id="NETStandard.Library" version="1.6.1" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
     <file src="ContextFreeTasks.Net45\bin\Release\*" target="lib\net45" />
