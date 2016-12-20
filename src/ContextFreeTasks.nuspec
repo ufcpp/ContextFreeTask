@@ -14,7 +14,7 @@
     <copyright>Nobuyuki Iwanaga</copyright>
     <tags>Task-like, async method, ConfigureAwait, SynchronizationContext</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
     </frameworkAssemblies>
     <dependencies>
       <group targetFramework="net45" />
