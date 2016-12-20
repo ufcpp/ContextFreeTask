@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ContextFreeTasks</id>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
     <title>ContextFreeTasks</title>
     <authors>Nobuyuki Iwanaga</authors>
     <owners>Nobuyuki Iwanaga</owners>
@@ -10,14 +10,21 @@
     <projectUrl>https://github.com/ufcpp/ContextFreeTask/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Task-like structs which capture no synchronization context on the await operations in C#</description>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Add and change some methods for consistency with the Task and the ValueTask</releaseNotes>
     <copyright>Nobuyuki Iwanaga</copyright>
     <tags>Task-like, async method, ConfigureAwait, SynchronizationContext</tags>
     <frameworkAssemblies>
-      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System" targetFramework="net45" />
     </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="net45" />
+      <group targetFramework="netstandard1.0">
+	<dependency id="NETStandard.Library" version="1.6.1" />
+      </group>
+    </dependencies>
   </metadata>
   <files>
-      <file src="ContextFreeTasks.Net45\bin\Release\*" target="lib\net45" />
+    <file src="ContextFreeTasks.Net45\bin\Release\*" target="lib\net45" />
+    <file src="ContextFreeTasks.NETStandard\bin\Release\netstandard1.0\*" target="lib\netstandard1.0" exclude="**\*.deps.json" />
   </files>
 </package>

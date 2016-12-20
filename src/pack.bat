@@ -1,0 +1,1 @@
+%USERPROFILE%\.nuget\packages\NuGet.CommandLine\3.4.3\tools\NuGet.exe pack

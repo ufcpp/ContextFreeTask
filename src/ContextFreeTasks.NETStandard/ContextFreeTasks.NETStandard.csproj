@@ -1,4 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup Label="Configuration">
+    <AssemblyName>ContextFreeTasks</AssemblyName>
+    <RootNamespace>ContextFreeTasks</RootNamespace>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
   </PropertyGroup>
