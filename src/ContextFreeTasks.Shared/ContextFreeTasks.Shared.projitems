@@ -9,12 +9,16 @@
     <Import_RootNamespace>ContextFreeTasks</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AsyncContextFreeTaskMethodBuilder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AsyncContextFreeTaskMethodBuilder_T.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AsyncMethodBuilderAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncContextFreeTaskMethodBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncContextFreeTaskMethodBuilder_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncMethodBuilderAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTask.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTaskAwaiter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTaskAwaiter_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\ContextFreeTaskAwaiter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\ContextFreeTaskAwaiter_T.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTask_T.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Internal\" />
+    <Folder Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\" />
   </ItemGroup>
 </Project>
