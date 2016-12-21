@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ContextFreeTasks.Internal;
 using static System.Threading.Tasks.Task;
@@ -14,5 +15,10 @@ namespace ContextFreeTasks
         public ContextFreeTaskAwaiter GetAwaiter() => new ContextFreeTaskAwaiter(Task);
         public void Wait() => _task?.Wait();
         public ConfiguredTaskAwaitable ConfigureAwait(bool continueOnCapturedContext) => Task.ConfigureAwait(continueOnCapturedContext);
+
+        public static ContextFreeTask Run(Action action) => new ContextFreeTask(Task.Run(action));
+        public static ContextFreeTask Run(Func<ContextFreeTask> function) => new ContextFreeTask(Task.Run(async () => await function().ConfigureAwait(false)));
+        public static ContextFreeTask<T> Run<T>(Func<T> function) => new ContextFreeTask<T>(Task.Run(function));
+        public static ContextFreeTask<T> Run<T>(Func<ContextFreeTask<T>> function) => new ContextFreeTask<T>(Task.Run(async () => await function().ConfigureAwait(false)));
     }
 }
