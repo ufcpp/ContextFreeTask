@@ -13,8 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Internal\AsyncContextFreeTaskMethodBuilder_T.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncMethodBuilderAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTask.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTaskAwaiter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTaskAwaiter_T.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContextFreeTask_T.cs" />
   </ItemGroup>
   <ItemGroup>

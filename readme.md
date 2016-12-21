@@ -7,13 +7,11 @@ NuGet package: https://www.nuget.org/packages/ContextFreeTasks/
 Use `ContextFreeTask` struct instead of `Task` class (`System.Threading.Tasks` namespace) for return types of async methods.
 
 ```csharp
-private async ContextFreeTask FAsync()
-{
-    ...
-}
+private async ContextFreeTask FAsync() { ... }
+private async ContextFreeTask<T> FAsync<T>() { ... }
 ```
 
-This ignores the current synchronization context.
+These ignore the current synchronization context in the methods.
 You do not have to write `ConfigureAwait(false)` anymore.
 
 ### Task-like
@@ -25,11 +23,7 @@ The `ContextFreeTask` struct in this library satisfies the "Task-like" pattern a
 
 ### What ContextFreeTask does
 
-This struct ignores synchronization context at all.
-In other words,
-
-- `await` operations in the methods which return `ContextFreeTask` capture no context
-- `await` operations on `ContextFreeTask` capture no context
+The methods which return `ContextFreeTask` do not capture the synchronization context.
 
 For example, you can use this as following:
 
@@ -43,14 +37,6 @@ private async ContextFreeTask FAsync()
     await Task.Delay(100);
     // no context here
 }
-
-private async Task GAsync()
-{
-    // You can await on ContextFreeTask
-    // ContextFreeTask don't capture current context
-    await FAsync();
-    // no context here
-}
 ```
 
 This code behaves almost the same as the following:
@@ -60,11 +46,6 @@ private async Task FAsync()
 {
     await Task.Delay(100).ConfigureAwait(false);
     await Task.Delay(100).ConfigureAwait(false);
-}
-
-private async Task GAsync()
-{
-    await FAsync().ConfigureAwait(false);
 }
 ```
 
@@ -88,17 +69,7 @@ public struct ContextFreeTask<T>
 }
 ```
 
-Those awaiters always use `ConfigureAwait(false)`.
-
-```cs
-public struct ContextFreeTaskAwaiter : ICriticalNotifyCompletion
-{
-    private readonly Task _value;
-    public void OnCompleted(Action continuation) => _value.ConfigureAwait(false).GetAwaiter().OnCompleted(continuation);
-}
-```
-
-Furthermore, those AsyncMethodBuilders always clear current synchronization context.
+Those AsyncMethodBuilders always clear current synchronization context.
 
 ```cs
 public struct AsyncContextFreeTaskMethodBuilder
