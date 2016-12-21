@@ -55,11 +55,11 @@ namespace UnitTest
         {
             OnMainThread();
             var s = await A2(n);
-            OnPoolThread();
+            OnMainThread();
             await Task.Delay(100);
-            OnPoolThread();
+            OnMainThread();
             await A3();
-            OnPoolThread();
+            OnMainThread();
             return s;
         }
 
