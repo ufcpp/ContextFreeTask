@@ -4,13 +4,13 @@
 
 NuGet package: https://www.nuget.org/packages/ContextFreeTasks/
 
-Use `ContextFreeTask` struct instead of `Task` class (`System.Threading.Tasks` namespace) for return types of async methods.
+Use `ContextFreeTask` or `ContextFreeAsyncReturn` struct instead of `Task` class (`System.Threading.Tasks` namespace) for return types of async methods.
 
 ```csharp
-private async ContextFreeTask FAsync()
-{
-    ...
-}
+private async ContextFreeTask FAsync() { ... }
+private async ContextFreeTask<T> FAsync() { ... }
+private async ContextFreeAsyncReturn FAsync() { ... }
+private async ContextFreeAsyncReturn<T> FAsync() { ... }
 ```
 
 This ignores the current synchronization context.
@@ -23,13 +23,17 @@ The returned type must satisfy a certain pattern. These types are called "Task-l
 
 The `ContextFreeTask` struct in this library satisfies the "Task-like" pattern and the "awaitable" pattern.
 
-### What ContextFreeTask does
+### Ignoring synchronization context
 
-This struct ignores synchronization context at all.
-In other words,
+Structs in this package ignore synchronization context on `await` operations in two ways:
 
-- `await` operations in the methods which return `ContextFreeTask` capture no context
-- `await` operations on `ContextFreeTask` capture no context
+- `await` in the methods which return the struct
+- `await` for the struct
+
+There are two types of struct in the package:
+
+- `ContextFreeTask`, `ContextFreeTask<T>`: ignore context in both ways.
+- `ContextFreeAsyncReturn`, `ContextFreeAsyncReturn<T>`: ignore context in the first way, in the methods which return the struct
 
 For example, you can use this as following:
 
