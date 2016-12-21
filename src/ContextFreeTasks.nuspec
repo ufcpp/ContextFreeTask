@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>ContextFreeTasks</id>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
     <title>ContextFreeTasks</title>
     <authors>Nobuyuki Iwanaga</authors>
     <owners>Nobuyuki Iwanaga</owners>
@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/ufcpp/ContextFreeTask/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Task-like structs which capture no synchronization context on the await operations in C#</description>
-    <releaseNotes>Add and change some methods for consistency with the Task and the ValueTask</releaseNotes>
+    <releaseNotes>Add ContextFreeAsyncReturn which ignore context only in methods</releaseNotes>
     <copyright>Nobuyuki Iwanaga</copyright>
     <tags>Task-like, async method, ConfigureAwait, SynchronizationContext</tags>
     <frameworkAssemblies>
