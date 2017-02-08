@@ -21,16 +21,32 @@ namespace ContextFreeTasks.Internal
             where TAwaiter : INotifyCompletion
             where TStateMachine : IAsyncStateMachine
         {
-            SynchronizationContext.SetSynchronizationContext(null);
-            _methodBuilder.AwaitOnCompleted(ref awaiter, ref stateMachine);
+            var prevContext = SynchronizationContext.Current;
+            try
+            {
+                SynchronizationContext.SetSynchronizationContext(null);
+                _methodBuilder.AwaitOnCompleted(ref awaiter, ref stateMachine);
+            }
+            finally
+            {
+                SynchronizationContext.SetSynchronizationContext(prevContext);
+            }
         }
         [SecuritySafeCritical]
         public void AwaitUnsafeOnCompleted<TAwaiter, TStateMachine>(ref TAwaiter awaiter, ref TStateMachine stateMachine)
             where TAwaiter : ICriticalNotifyCompletion
             where TStateMachine : IAsyncStateMachine
         {
-            SynchronizationContext.SetSynchronizationContext(null);
-            _methodBuilder.AwaitUnsafeOnCompleted(ref awaiter, ref stateMachine);
+            var prevContext = SynchronizationContext.Current;
+            try
+            {
+                SynchronizationContext.SetSynchronizationContext(null);
+                _methodBuilder.AwaitUnsafeOnCompleted(ref awaiter, ref stateMachine);
+            }
+            finally
+            {
+                SynchronizationContext.SetSynchronizationContext(prevContext);
+            }
         }
     }
 }
