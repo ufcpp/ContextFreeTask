@@ -12,7 +12,20 @@ namespace ContextFreeTasks.Internal
         private AsyncTaskMethodBuilder _methodBuilder;
         public static AsyncContextFreeTaskMethodBuilder Create() =>
             new AsyncContextFreeTaskMethodBuilder() { _methodBuilder = AsyncTaskMethodBuilder.Create() };
-        public void Start<TStateMachine>(ref TStateMachine stateMachine) where TStateMachine : IAsyncStateMachine => _methodBuilder.Start(ref stateMachine);
+        public void Start<TStateMachine>(ref TStateMachine stateMachine)
+            where TStateMachine : IAsyncStateMachine
+        {
+            var prevContext = SynchronizationContext.Current;
+            try
+            {
+                SynchronizationContext.SetSynchronizationContext(null);
+                _methodBuilder.Start(ref stateMachine);
+            }
+            finally
+            {
+                SynchronizationContext.SetSynchronizationContext(prevContext);
+            }
+        }
         public void SetStateMachine(IAsyncStateMachine stateMachine) => _methodBuilder.SetStateMachine(stateMachine);
         public void SetResult() => _methodBuilder.SetResult();
         public void SetException(Exception exception) => _methodBuilder.SetException(exception);
