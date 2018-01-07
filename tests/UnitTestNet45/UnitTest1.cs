@@ -1,27 +1,25 @@
+using System;
 using System.Threading.Tasks;
 using ContextFreeTasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Xunit;
 
 namespace UnitTest
 {
-    [TestClass]
-    public class UnitTest1
+    public class UnitTest1 : IDisposable
     {
         SingleThreadedSynchronizationContext _syncContext;
 
-        [TestInitialize]
-        public void Initialize()
+        public UnitTest1()
         {
             _syncContext = new SingleThreadedSynchronizationContext();
         }
 
-        [TestCleanup]
-        public void Creanup()
+        public void Dispose()
         {
             _syncContext.Dispose();
         }
 
-        [TestMethod]
+        [Fact]
         public void TestMethod1()
         {
             TestMethod1Async().Wait();
@@ -40,7 +38,7 @@ namespace UnitTest
         private void OnThread(int expectedThreadId)
         {
             var threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-            Assert.AreEqual(expectedThreadId, threadId);
+            Assert.Equal(expectedThreadId, threadId);
         }
 
         private void OnMainThread() => OnThread(_syncContext.ThreadId);
@@ -48,7 +46,7 @@ namespace UnitTest
         private void OnPoolThread()
         {
             var threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-            Assert.AreNotEqual(_syncContext.ThreadId, threadId);
+            Assert.NotEqual(_syncContext.ThreadId, threadId);
         }
 
         private async Task<string> A1(int n)

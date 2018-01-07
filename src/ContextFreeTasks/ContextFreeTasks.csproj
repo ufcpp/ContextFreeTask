@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.4.0</Version>
+    <Description>Task-like structs which capture no synchronization context on the await operations in C#</Description>
+    <Authors>Nobuyuki Iwanaga</Authors>
+    <PackageLicenseUrl>https://github.com/ufcpp/ContextFreeTask/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ufcpp/ContextFreeTask/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ufcpp/ContextFreeTask/</RepositoryUrl>
+    <PackageReleaseNotes>https://github.com/ufcpp/ContextFreeTask/pull/10
+https://github.com/ufcpp/ContextFreeTask/pull/12
+</PackageReleaseNotes>
+    <Copyright>Nobuyuki Iwanaga</Copyright>
+  </PropertyGroup>
+
+</Project>
