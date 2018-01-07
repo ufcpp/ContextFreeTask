@@ -80,8 +80,16 @@ public struct AsyncContextFreeTaskMethodBuilder
         where TAwaiter : INotifyCompletion
         where TStateMachine : IAsyncStateMachine
     {
-        SynchronizationContext.SetSynchronizationContext(null);
-        _methodBuilder.AwaitOnCompleted(ref awaiter, ref stateMachine);
+        var prevContext = SynchronizationContext.Current;
+        try
+        {
+            SynchronizationContext.SetSynchronizationContext(null);
+            _methodBuilder.AwaitOnCompleted(ref awaiter, ref stateMachine);
+        }
+        finally
+        {
+            SynchronizationContext.SetSynchronizationContext(prevContext);
+        }
     }
 }
 ```
