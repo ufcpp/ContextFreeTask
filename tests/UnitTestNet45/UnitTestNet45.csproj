@@ -12,11 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\TaskLibrary\src\TaskLibraries\SystemAsync\SystemAsync.csproj" />
     <ProjectReference Include="..\..\src\ContextFreeTasks\ContextFreeTasks.csproj" />
-    <ProjectReference Include="..\GeneratedCommon.ViewModels\GeneratedCommon.ViewModels.csproj" />
-    <ProjectReference Include="..\GeneratedCommon\GeneratedCommon.csproj" />
-    <ProjectReference Include="..\Samples\V2\SampleTypes\SampleTypes\SampleTypes.csproj" />
   </ItemGroup>
 
   <ItemGroup>
